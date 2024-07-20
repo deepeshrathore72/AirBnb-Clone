@@ -20,6 +20,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
+const DbUrl = process.env.ATLASDB_URL;
+const mongoUrl = "mongodb://127.0.0.1:27017/wanderlust";
 // 860314
 // we have used 'MVC' framework here which means : "Model - View - Controller".
 
@@ -29,7 +31,7 @@ main().then(()=>{
 }).catch((err)=>{console.error(err)});
 
 async function main() {
-    await mongoose.connect("mongodb+srv://deepeshrathore72:gWvFHQvyTLy10DMj@cluster0.2gzcpf2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    await mongoose.connect(DbUrl);
 }
 
 app.set("view engine", "ejs");
@@ -40,7 +42,7 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-    mongoUrl: "mongodb+srv://deepeshrathore72:gWvFHQvyTLy10DMj@cluster0.2gzcpf2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    mongoUrl: DbUrl,
     crypto : {
         secret : process.env.SECRET,
     },
@@ -67,8 +69,8 @@ app.use(sessionOptions);
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
 
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
