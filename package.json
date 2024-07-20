@@ -31,5 +31,8 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0"
+  },
+  "resolutions": {
+    "multer-storage-cloudinary/cloudinary": "^1.21.0"
   }
 }
