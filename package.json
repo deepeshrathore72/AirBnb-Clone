@@ -2,9 +2,9 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "name": "major-project1",
+  "name": "wanderlust",
   "version": "1.0.0",
-  "description": "AirBnb Clone - Wanderlust",
+  "description": "Wanderlust - A Travel Assistance Platform",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

@@ -60,7 +60,7 @@ A feature-rich, production-ready Wanderlust built with Node.js, Express, MongoDB
 
 ### UI/UX Features
 - 🎨 **Modern Design**
-  - Airbnb-inspired clean interface
+  - Minimal clean interface
   - Responsive design for all devices
   - Smooth animations and transitions
   - Gradient backgrounds and modern typography
@@ -122,8 +122,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/airbnb-clone.git
-cd airbnb-clone
+git clone https://github.com/yourusername/Wanderlust.git
+cd Wanderlust
 ```
 
 ### 2. Install Dependencies
@@ -244,7 +244,7 @@ SECRET=your-long-random-string-for-production
 ## 📁 Project Structure
 
 ```
-airbnb-clone/
+Wanderlust/
 ├── controllers/          # Route controllers
 │   ├── listings.js      # Listing CRUD operations
 │   ├── reviews.js       # Review operations
@@ -442,7 +442,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Inspired by [Airbnb](https://www.airbnb.com)
 - Icons from [Font Awesome](https://fontawesome.com)
 - Images hosted on [Cloudinary](https://cloudinary.com)
 - UI inspiration from modern web design trends
