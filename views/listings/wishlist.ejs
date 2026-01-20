@@ -1,0 +1,410 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    .wishlist-header {
+        background: linear-gradient(135deg, #ff385c 0%, #e31c5f 100%);
+        color: white;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+        border-radius: 0 0 30px 30px;
+        text-align: center;
+        
+    }
+    
+    .wishlist-header h1 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .wishlist-header p {
+        opacity: 0.9;
+        font-size: 1.1rem;
+    }
+    
+    .empty-wishlist {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: #f8f9fa;
+        border-radius: 20px;
+        margin-top: 2rem;
+    }
+    
+    .empty-wishlist i {
+        font-size: 4rem;
+        color: #ddd;
+        margin-bottom: 1rem;
+    }
+    
+    .empty-wishlist h3 {
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    
+    .empty-wishlist p {
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+    
+    .listing-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        border: none;
+    }
+    
+    .listing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-img-container {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+    }
+    
+    .card-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    
+    .listing-card:hover .card-img-container img {
+        transform: scale(1.08);
+    }
+    
+    .like-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    
+    .like-btn:hover {
+        transform: scale(1.1);
+        background: white;
+    }
+    
+    .like-btn i {
+        color: #ff385c;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .like-btn.liked i {
+        animation: heartPop 0.4s ease;
+    }
+    
+    @keyframes heartPop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+        100% { transform: scale(1); }
+    }
+    
+    .category-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+    }
+    
+    .card-body-content {
+        padding: 1rem;
+    }
+    
+    .card-location {
+        font-weight: 600;
+        color: #222;
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .card-title-text {
+        color: #717171;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .rating-row i {
+        color: #ff385c;
+        font-size: 0.85rem;
+    }
+    
+    .rating-text {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #222;
+    }
+    
+    .review-count {
+        color: #717171;
+        font-size: 0.875rem;
+    }
+    
+    .price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.25rem;
+    }
+    
+    .price-amount {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #222;
+    }
+    
+    .price-night {
+        color: #717171;
+        font-size: 0.875rem;
+    }
+    
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+        .wishlist-header {
+            padding: 2rem 0;
+            margin-bottom: 1.5rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .wishlist-header h1 {
+            font-size: 1.5rem;
+        }
+        
+        .wishlist-header p {
+            font-size: 0.95rem;
+        }
+        
+        .empty-wishlist {
+            padding: 3rem 1.5rem;
+        }
+        
+        .empty-wishlist i {
+            font-size: 3rem;
+        }
+        
+        .empty-wishlist h3 {
+            font-size: 1.15rem;
+        }
+    }
+    
+    @media (max-width: 575px) {
+        .wishlist-header {
+            padding: 1.75rem 0;
+            margin-bottom: 1.25rem;
+            margin-left: -0.75rem;
+            margin-right: -0.75rem;
+            border-radius: 0 0 16px 16px;
+        }
+        
+        .wishlist-header h1 {
+            font-size: 1.3rem;
+        }
+        
+        .wishlist-header p {
+            font-size: 0.85rem;
+        }
+        
+        .empty-wishlist {
+            padding: 2.5rem 1rem;
+            border-radius: 16px;
+        }
+        
+        .empty-wishlist i {
+            font-size: 2.5rem;
+        }
+        
+        .empty-wishlist h3 {
+            font-size: 1.05rem;
+        }
+        
+        .empty-wishlist p {
+            font-size: 0.85rem;
+        }
+        
+        .listing-card {
+            border-radius: 12px;
+        }
+        
+        .card-body-content {
+            padding: 0.75rem;
+        }
+        
+        .card-location {
+            font-size: 0.85rem;
+        }
+        
+        .card-title-text {
+            font-size: 0.8rem;
+        }
+        
+        .rating-row {
+            margin-bottom: 0.35rem;
+        }
+        
+        .rating-row i {
+            font-size: 0.75rem;
+        }
+        
+        .rating-text,
+        .review-count {
+            font-size: 0.8rem;
+        }
+        
+        .price-amount {
+            font-size: 0.9rem;
+        }
+        
+        .price-night {
+            font-size: 0.8rem;
+        }
+        
+        .like-btn {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .like-btn i {
+            font-size: 0.85rem;
+        }
+        
+        .category-badge {
+            padding: 3px 8px;
+            font-size: 0.65rem;
+        }
+    }
+</style>
+
+<div class="wishlist-header">
+    <div class="container">
+        <h1><i class="fa-solid fa-heart me-2"></i>Your Wishlist</h1>
+        <p>Places you've saved for your next adventure</p>
+    </div>
+</div>
+
+<div class="container">
+    <% if (allListings.length === 0) { %>
+        <div class="empty-wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <h3>Your wishlist is empty</h3>
+            <p>Start exploring and save places you love by clicking the heart icon!</p>
+            <a href="/listings" class="btn btn-danger btn-lg" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fa-solid fa-compass" style="display: inline-block; vertical-align: middle; padding-top: 1rem;"></i><span>Explore Listings</span>
+            </a>
+        </div>
+    <% } else { %>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <% for (let listing of allListings) { %>
+                <div class="col listing-col" data-id="<%= listing._id %>">
+                    <div class="listing-card">
+                        <div class="card-img-container">
+                            <a href="/listings/<%= listing._id %>" class="card-link">
+                                <img src="<%= listing.image.url %>" alt="<%= listing.title %>">
+                            </a>
+                            <span class="category-badge"><%= listing.category %></span>
+                            <button class="like-btn liked" onclick="toggleLike(this)" data-id="<%= listing._id %>">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <a href="/listings/<%= listing._id %>" class="card-link">
+                            <div class="card-body-content">
+                                <div class="card-location"><%= listing.location %>, <%= listing.country %></div>
+                                <div class="card-title-text"><%= listing.title %></div>
+                                <div class="rating-row">
+                                    <% if (listing.avgRating) { %>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span class="rating-text"><%= listing.avgRating %></span>
+                                        <span class="review-count">(<%= listing.reviewCount %> reviews)</span>
+                                    <% } else { %>
+                                        <i class="fa-regular fa-star"></i>
+                                        <span class="review-count">New</span>
+                                    <% } %>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-amount">&#8377;<%= listing.price.toLocaleString("en-IN") %></span>
+                                    <span class="price-night">/ night</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</div>
+
+<script>
+    async function toggleLike(btn) {
+        const id = btn.dataset.id;
+        
+        try {
+            const response = await fetch(`/listings/${id}/like`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                if (!data.isLiked) {
+                    // Remove the card from wishlist with animation
+                    const col = btn.closest('.listing-col');
+                    col.style.transition = 'all 0.3s ease';
+                    col.style.opacity = '0';
+                    col.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        col.remove();
+                        // Check if wishlist is empty
+                        const remaining = document.querySelectorAll('.listing-col');
+                        if (remaining.length === 0) {
+                            location.reload();
+                        }
+                    }, 300);
+                }
+            }
+        } catch (error) {
+            console.error('Error toggling like:', error);
+        }
+    }
+</script>

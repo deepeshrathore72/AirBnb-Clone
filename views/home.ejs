@@ -1,0 +1,430 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, rgba(254, 66, 77, 0.9), rgba(255, 107, 107, 0.8)),
+                    url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin: -1rem -12px 0 -12px;
+        padding: 2rem;
+        animation: fadeIn 0.8s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        animation: slideUp 0.8s ease-out 0.2s both;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+    }
+    
+    /* Hero Search */
+    .hero-search {
+        background: white;
+        border-radius: 50px;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        animation: scaleIn 0.6s ease-out 0.4s both;
+    }
+    
+    .hero-search input {
+        border: none;
+        flex: 1;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        outline: none;
+    }
+    
+    .hero-search input::placeholder {
+        color: #717171;
+    }
+    
+    .hero-search button {
+        background: linear-gradient(135deg, #fe424d, #ff6b6b);
+        border: none;
+        border-radius: 50px;
+        padding: 1rem 2rem;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .hero-search button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(254, 66, 77, 0.4);
+    }
+    
+    .hero-cta {
+        animation: slideUp 0.8s ease-out 0.6s both;
+    }
+    
+    .btn-explore {
+        background: white;
+        color: #fe424d;
+        border: none;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-explore:hover {
+        background: #222;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    /* Categories Section */
+    .categories-section {
+        padding: 5rem 0;
+        background: #fafafa;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        color: #222;
+    }
+    
+    .section-subtitle {
+        text-align: center;
+        color: #717171;
+        margin-bottom: 3rem;
+    }
+    
+    .category-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem 1rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        height: 100%;
+    }
+    
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        color: inherit;
+    }
+    
+    .category-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+    
+    .category-name {
+        font-weight: 600;
+        font-size: 1rem;
+        color: #222;
+    }
+    
+    /* Features Section */
+    .features-section {
+        padding: 5rem 0;
+    }
+    
+    .feature-card {
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #fe424d, #ff6b6b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .feature-title {
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #222;
+    }
+    
+    .feature-desc {
+        color: #717171;
+        line-height: 1.6;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+        background: linear-gradient(135deg, #222, #333);
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fe424d;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+        padding: 5rem 0;
+        text-align: center;
+        background: linear-gradient(135deg, #fff5f5, #ffffff);
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #222;
+    }
+    
+    .cta-subtitle {
+        font-size: 1.1rem;
+        color: #717171;
+        margin-bottom: 2rem;
+    }
+    
+    .btn-cta {
+        background: linear-gradient(135deg, #fe424d, #ff6b6b);
+        color: white;
+        border: none;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .btn-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(254, 66, 77, 0.4);
+        color: white;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.2rem; }
+        .hero-subtitle { font-size: 1rem; }
+        .hero-search {
+            flex-direction: column;
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+        .hero-search input {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+        .hero-search button { width: 100%; }
+        .section-title { font-size: 1.5rem; }
+        .cta-title { font-size: 1.8rem; }
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">Find Your Perfect Getaway</h1>
+        <p class="hero-subtitle">Discover unique homes, experiences, and places around the world</p>
+        
+        <form action="/listings" method="GET" class="hero-search">
+            <input type="text" name="search" placeholder="Where do you want to go?" autocomplete="off">
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+        </form>
+        
+        <div class="hero-cta">
+            <a href="/listings" class="btn-explore">
+                <i class="fa-solid fa-compass"></i> Explore All Listings
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories-section">
+    <div class="container">
+        <h2 class="section-title">Explore by Category</h2>
+        <p class="section-subtitle">Find the perfect stay for your next adventure</p>
+        
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Beachfront" class="category-card">
+                    <span class="category-icon" style="color: #fe424d;"><i class="fa-solid fa-umbrella-beach"></i></span>
+                    <span class="category-name">Beachfront</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Mountains" class="category-card">
+                    <span class="category-icon" style="color: #00a699;"><i class="fa-solid fa-mountain-sun"></i></span>
+                    <span class="category-name">Mountains</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Iconic Cities" class="category-card">
+                    <span class="category-icon" style="color: #fc8c0c;"><i class="fa-solid fa-city"></i></span>
+                    <span class="category-name">Iconic Cities</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Castles" class="category-card">
+                    <span class="category-icon" style="color: #914669;"><i class="fa-solid fa-chess-rook"></i></span>
+                    <span class="category-name">Castles</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Camping" class="category-card">
+                    <span class="category-icon" style="color: #00a699;"><i class="fa-solid fa-campground"></i></span>
+                    <span class="category-name">Camping</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Luxury" class="category-card">
+                    <span class="category-icon" style="color: #fe424d;"><i class="fa-solid fa-gem"></i></span>
+                    <span class="category-name">Luxury</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Countryside" class="category-card">
+                    <span class="category-icon" style="color: #228B22;"><i class="fa-solid fa-tree"></i></span>
+                    <span class="category-name">Countryside</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="/listings?category=Boats" class="category-card">
+                    <span class="category-icon" style="color: #1e90ff;"><i class="fa-solid fa-sailboat"></i></span>
+                    <span class="category-name">Boats</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title">Why Choose Wanderlust?</h2>
+        <p class="section-subtitle">Everything you need for an unforgettable trip</p>
+        
+        <div class="row mt-5">
+            <div class="col-md-4 feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="feature-title">Verified Listings</h3>
+                <p class="feature-desc">All our listings are verified by our team to ensure quality and safety for every traveler.</p>
+            </div>
+            
+            <div class="col-md-4 feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                </div>
+                <h3 class="feature-title">Best Price Guarantee</h3>
+                <p class="feature-desc">Find the best deals on unique accommodations. We match any price you find elsewhere.</p>
+            </div>
+            
+            <div class="col-md-4 feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="feature-title">24/7 Support</h3>
+                <p class="feature-desc">Our dedicated support team is available around the clock to help with any questions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Listings</div>
+            </div>
+            <div class="col-4">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Guests</div>
+            </div>
+            <div class="col-4">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="cta-title">Ready for Your Next Adventure?</h2>
+        <p class="cta-subtitle">Start exploring thousands of unique places to stay around the world.</p>
+        <a href="/listings" class="btn-cta">
+            <i class="fa-solid fa-rocket"></i> Start Exploring
+        </a>
+    </div>
+</section>

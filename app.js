@@ -14,13 +14,13 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-const DbUrl = process.env.ATLASDB_URL;
+const ATLASDB_URL = process.env.ATLASDB_URL || process.env.MONGODB_URL;
 const mongoUrl = "mongodb://127.0.0.1:27017/wanderlust";
 // 860314
 // we have used 'MVC' framework here which means : "Model - View - Controller".
@@ -31,7 +31,7 @@ main().then(()=>{
 }).catch((err)=>{console.error(err)});
 
 async function main() {
-    await mongoose.connect(DbUrl);
+    await mongoose.connect(ATLASDB_URL);
 }
 
 app.set("view engine", "ejs");
@@ -42,7 +42,7 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-    mongoUrl: DbUrl,
+    mongoUrl: ATLASDB_URL,
     crypto : {
         secret : process.env.SECRET,
     },
@@ -90,6 +90,11 @@ app.use((req, res, next)=>{
 //     let registeredUser = await User.register(fakeUser , "password");
 //     res.send(registeredUser);
 // });
+
+// Homepage route
+app.get("/", (req, res) => {
+    res.render("home.ejs");
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);

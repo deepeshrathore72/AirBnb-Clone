@@ -1,0 +1,1363 @@
+/* ============================================
+   RESPONSIVE CSS - Mobile, Tablet, Desktop
+   ============================================ */
+
+/* Base responsive adjustments */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container adjustments */
+.container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* ============================================
+   LARGE DESKTOP (1400px+)
+   ============================================ */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* ============================================
+   DESKTOP (1200px - 1399px)
+   ============================================ */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* ============================================
+   SMALL DESKTOP / LARGE TABLET (992px - 1199px)
+   ============================================ */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    /* Navbar adjustments */
+    .navbar {
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .search-form {
+        min-width: auto;
+    }
+    
+    .search-inp {
+        min-width: 150px !important;
+    }
+    
+    /* Cards */
+    .card-img-top {
+        height: 240px !important;
+    }
+    
+    /* Footer */
+    .footer-brand .brand-desc {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   TABLET (768px - 991px)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 0.75rem 1rem !important;
+    }
+    
+    .navbar-brand span {
+        font-size: 1.1rem !important;
+    }
+    
+    .search-form {
+        margin: 1rem 0 !important;
+        width: 100%;
+        order: 3;
+    }
+    
+    .search-inp {
+        flex: 1;
+        min-width: auto !important;
+    }
+    
+    .auth-buttons {
+        margin: 0 !important;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.9rem;
+    }
+    
+    .btn-login, .btn-signup {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.9rem;
+    }
+    
+    /* Hero Section */
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Cards */
+    .card-img-top {
+        height: 220px !important;
+    }
+    
+    .listing-card {
+        margin-bottom: 1.25rem;
+    }
+    
+    /* Filter bar */
+    .filter {
+        min-width: 70px !important;
+        padding: 0.75rem !important;
+    }
+    
+    .filter i {
+        font-size: 1.5rem !important;
+    }
+    
+    .filter p {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding: 2rem 0 0 !important;
+    }
+    
+    .footer-title {
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.85rem;
+    }
+    
+    /* Show page */
+    .listing-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .listing-details {
+        padding-right: 0 !important;
+        border-right: none !important;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* New listing page */
+    .host-hero h1 {
+        font-size: 2rem !important;
+    }
+    
+    .host-benefits {
+        gap: 1rem !important;
+    }
+    
+    /* Auth pages */
+    .auth-card {
+        max-width: 380px;
+        padding: 2rem !important;
+    }
+}
+
+/* ============================================
+   MOBILE LANDSCAPE / LARGE PHONE (576px - 767px)
+   ============================================ */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 0.5rem 0.75rem !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem !important;
+    }
+    
+    .navbar-brand span {
+        font-size: 1rem !important;
+    }
+    
+    .nav-link.host-link {
+        font-size: 0.85rem;
+    }
+    
+    .search-form {
+        margin: 0.75rem 0 !important;
+        width: 100%;
+    }
+    
+    /* Hero */
+    .hero-section {
+        min-height: 70vh !important;
+        padding: 1.5rem !important;
+    }
+    
+    .hero-title {
+        font-size: 2rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-search {
+        flex-direction: column;
+        border-radius: 16px !important;
+        padding: 1rem !important;
+    }
+    
+    .hero-search input {
+        width: 100%;
+        margin-bottom: 0.75rem;
+        border-radius: 12px !important;
+    }
+    
+    .hero-search button {
+        width: 100%;
+        border-radius: 12px !important;
+    }
+    
+    .btn-explore {
+        padding: 0.875rem 2rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Category cards */
+    .category-card {
+        padding: 1.5rem 0.75rem !important;
+    }
+    
+    .category-icon {
+        font-size: 2rem !important;
+    }
+    
+    .category-name {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Features */
+    .feature-icon {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .feature-title {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Stats */
+    .stat-number {
+        font-size: 2rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Cards */
+    .card-img-top {
+        height: 200px !important;
+    }
+    
+    /* Filters */
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+    
+    .top-bar-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .filter-toggle-btn {
+        padding: 0.625rem 1rem !important;
+        font-size: 0.9rem;
+    }
+    
+    .tax-toggle {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    #filters {
+        padding: 1rem 0 !important;
+        gap: 0.5rem !important;
+    }
+    
+    .filter {
+        min-width: 65px !important;
+        padding: 0.625rem !important;
+    }
+    
+    .filter i {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .filter p {
+        font-size: 0.65rem !important;
+    }
+    
+    /* Show page */
+    .listing-show {
+        padding: 1rem 0.5rem !important;
+    }
+    
+    .listing-title {
+        font-size: 1.4rem !important;
+    }
+    
+    .listing-image {
+        height: 300px !important;
+    }
+    
+    .listing-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .listing-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .price-card {
+        padding: 1.25rem !important;
+    }
+    
+    /* New listing */
+    .host-hero {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .host-hero h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    .host-hero p {
+        font-size: 1rem !important;
+    }
+    
+    .host-benefits {
+        gap: 1rem !important;
+    }
+    
+    .benefit-item i {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 1rem !important;
+    }
+    
+    .benefit-item span {
+        font-size: 0.9rem;
+    }
+    
+    .form-card {
+        padding: 1.5rem !important;
+    }
+    
+    /* Wishlist */
+    .wishlist-header {
+        padding: 2rem 0 !important;
+    }
+    
+    .wishlist-header h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding: 2rem 0 0 !important;
+        margin-top: 2rem !important;
+    }
+    
+    .footer-brand .brand-link {
+        font-size: 1.25rem !important;
+    }
+    
+    .footer-brand .brand-link i {
+        font-size: 1.5rem !important;
+    }
+    
+    .footer-bottom {
+        padding: 1rem 0 !important;
+    }
+    
+    .bottom-links {
+        justify-content: center !important;
+        margin-top: 0.75rem;
+    }
+    
+    /* Auth */
+    .auth-page {
+        padding: 1.5rem 1rem !important;
+    }
+    
+    .auth-card {
+        padding: 1.75rem !important;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ============================================
+   MOBILE (up to 575px)
+   ============================================ */
+@media (max-width: 575px) {
+    /* Base */
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 0.5rem 0.75rem !important;
+        height: auto !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.35rem !important;
+        gap: 0.3rem !important;
+    }
+    
+    .navbar-brand span {
+        font-size: 0.95rem !important;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.5rem !important;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .navbar-collapse {
+        margin-top: 0.75rem;
+    }
+    
+    .navbar-nav {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 0.5rem !important;
+        font-size: 0.95rem !important;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .search-form {
+        margin: 0.75rem 0 !important;
+        width: 100%;
+        padding: 0.2rem 0.2rem 0.2rem 0.75rem !important;
+    }
+    
+    .search-inp {
+        min-width: auto !important;
+        font-size: 0.9rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    .search-btn {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .user-menu {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+        padding: 0.5rem 0;
+        border-top: 1px solid #f0f0f0;
+        margin-top: 0.5rem;
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+        margin-left: 0 !important;
+        gap: 0.5rem !important;
+    }
+    
+    .btn-login, .btn-signup, .btn-logout {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1rem !important;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        min-height: 65vh !important;
+        padding: 1.25rem !important;
+        margin: -1rem -0.75rem 0 !important;
+        border-radius: 0 0 24px 24px !important;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .hero-search {
+        flex-direction: column;
+        border-radius: 12px !important;
+        padding: 0.75rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-search input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px !important;
+        font-size: 0.9rem;
+    }
+    
+    .hero-search button {
+        width: 100%;
+        padding: 0.75rem 1.5rem !important;
+        border-radius: 8px !important;
+        font-size: 0.9rem;
+    }
+    
+    .btn-explore {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Categories Section */
+    .categories-section {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .section-title {
+        font-size: 1.35rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .category-card {
+        padding: 1.25rem 0.5rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .category-icon {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .category-name {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Features Section */
+    .features-section {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .feature-card {
+        padding: 1.25rem !important;
+        margin-bottom: 1rem;
+    }
+    
+    .feature-icon {
+        width: 56px !important;
+        height: 56px !important;
+        font-size: 1.35rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .feature-title {
+        font-size: 1rem !important;
+    }
+    
+    .feature-desc {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem !important;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+        padding: 2.5rem 1rem !important;
+    }
+    
+    .cta-title {
+        font-size: 1.4rem !important;
+    }
+    
+    .cta-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .btn-cta {
+        padding: 0.875rem 2rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Listing Index Page */
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 0.75rem !important;
+        padding: 0.75rem 0 !important;
+    }
+    
+    .top-bar-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .filter-toggle-btn {
+        padding: 0.5rem 0.875rem !important;
+        font-size: 0.85rem;
+        border-radius: 8px !important;
+    }
+    
+    .results-count {
+        font-size: 0.8rem !important;
+    }
+    
+    .tax-toggle {
+        width: 100%;
+        justify-content: flex-end;
+        padding: 0.5rem 0.75rem !important;
+        border-radius: 8px !important;
+    }
+    
+    .form-check-label {
+        font-size: 0.85rem;
+    }
+    
+    #filters {
+        padding: 0.75rem 0 !important;
+        gap: 0.5rem !important;
+        overflow-x: auto;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .filter {
+        min-width: 60px !important;
+        padding: 0.5rem !important;
+        border-radius: 10px !important;
+        flex-shrink: 0;
+    }
+    
+    .filter i {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .filter p {
+        font-size: 0.6rem !important;
+    }
+    
+    /* Listing Cards */
+    .listing-card {
+        margin-bottom: 1.25rem;
+        border-radius: 12px !important;
+    }
+    
+    .card-img-container {
+        border-radius: 12px !important;
+    }
+    
+    .card-img-top {
+        height: 180px !important;
+        border-radius: 12px !important;
+    }
+    
+    .like-btn {
+        width: 32px !important;
+        height: 32px !important;
+        top: 8px !important;
+        right: 8px !important;
+    }
+    
+    .like-btn i {
+        font-size: 0.9rem !important;
+    }
+    
+    .category-badge {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.65rem !important;
+        top: 8px !important;
+        left: 8px !important;
+    }
+    
+    .card-body {
+        padding: 0.5rem 0 !important;
+    }
+    
+    .card-title-row h5 {
+        font-size: 0.9rem !important;
+    }
+    
+    .rating-badge {
+        font-size: 0.8rem !important;
+    }
+    
+    .card-location {
+        font-size: 0.8rem !important;
+    }
+    
+    .card-price {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Show Listing Page */
+    .listing-show {
+        padding: 0.75rem 0 !important;
+    }
+    
+    .listing-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .listing-title {
+        font-size: 1.25rem !important;
+        line-height: 1.3;
+    }
+    
+    .listing-meta {
+        gap: 0.5rem !important;
+        flex-wrap: wrap;
+    }
+    
+    .meta-item {
+        font-size: 0.85rem !important;
+    }
+    
+    .listing-actions {
+        width: 100%;
+        gap: 0.5rem !important;
+    }
+    
+    .action-btn {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .listing-image-container {
+        margin: 0 -0.75rem 1.25rem !important;
+        border-radius: 0 !important;
+    }
+    
+    .listing-image {
+        height: 250px !important;
+        border-radius: 0 !important;
+    }
+    
+    .category-tag {
+        top: 12px !important;
+        left: 12px !important;
+        padding: 0.35rem 0.75rem !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .listing-content {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .listing-details {
+        padding-right: 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid #ebebeb;
+        padding-bottom: 1.5rem;
+    }
+    
+    .host-info {
+        padding-bottom: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .host-avatar {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 1rem !important;
+    }
+    
+    .host-text h4 {
+        font-size: 0.95rem !important;
+    }
+    
+    .host-text p {
+        font-size: 0.85rem !important;
+    }
+    
+    .description-section p {
+        font-size: 0.9rem !important;
+    }
+    
+    .price-card {
+        padding: 1rem !important;
+        border-radius: 12px !important;
+        position: relative !important;
+        top: 0 !important;
+    }
+    
+    .price-amount {
+        font-size: 1.25rem !important;
+    }
+    
+    .owner-actions {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+    
+    .btn-edit, .btn-delete {
+        padding: 0.625rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Reviews */
+    .reviews-section {
+        margin-top: 1.5rem !important;
+        padding-top: 1.5rem !important;
+    }
+    
+    .reviews-header h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .review-form {
+        padding: 1rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .review-form h5 {
+        font-size: 1rem !important;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .review-card {
+        padding: 1rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .reviewer-avatar {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .reviewer-name {
+        font-size: 0.9rem !important;
+    }
+    
+    .review-comment {
+        font-size: 0.9rem !important;
+    }
+    
+    /* New Listing Page */
+    .host-hero {
+        padding: 2rem 0 !important;
+        margin: -1rem -0.75rem 1.5rem !important;
+        border-radius: 0 0 24px 24px !important;
+    }
+    
+    .host-hero h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .host-hero p {
+        font-size: 0.9rem !important;
+    }
+    
+    .host-benefits {
+        flex-direction: column;
+        gap: 0.75rem !important;
+        margin-top: 1.25rem !important;
+    }
+    
+    .benefit-item {
+        gap: 0.5rem !important;
+    }
+    
+    .benefit-item i {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .benefit-item span {
+        font-size: 0.85rem !important;
+    }
+    
+    .form-card {
+        padding: 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .form-card h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    .form-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .form-section {
+        margin-bottom: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .form-section-title {
+        font-size: 1rem !important;
+    }
+    
+    .form-label {
+        font-size: 0.9rem !important;
+    }
+    
+    .form-control, .form-select {
+        padding: 0.75rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 10px !important;
+    }
+    
+    .file-upload-wrapper {
+        padding: 1.5rem !important;
+        border-radius: 10px !important;
+    }
+    
+    .file-upload-icon {
+        font-size: 2rem !important;
+    }
+    
+    .file-upload-text {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Category Selection in New Form */
+    .category-select-grid {
+        gap: 0.5rem !important;
+    }
+    
+    .category-option {
+        padding: 0.75rem !important;
+        border-radius: 10px !important;
+    }
+    
+    .category-option i {
+        font-size: 1.25rem !important;
+    }
+    
+    .category-option span {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Wishlist Page */
+    .wishlist-header {
+        padding: 1.75rem 0 !important;
+        margin-bottom: 1.25rem !important;
+        border-radius: 0 0 20px 20px !important;
+    }
+    
+    .wishlist-header h1 {
+        font-size: 1.35rem !important;
+    }
+    
+    .wishlist-header p {
+        font-size: 0.9rem !important;
+    }
+    
+    .empty-wishlist {
+        padding: 2.5rem 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .empty-wishlist i {
+        font-size: 3rem !important;
+    }
+    
+    .empty-wishlist h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .empty-wishlist p {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Auth Pages */
+    .auth-page {
+        min-height: 75vh !important;
+        padding: 1.25rem 0.75rem !important;
+    }
+    
+    .auth-card {
+        padding: 1.5rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .auth-header i {
+        font-size: 2rem !important;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.35rem !important;
+    }
+    
+    .auth-header p {
+        font-size: 0.9rem !important;
+    }
+    
+    .auth-form .form-control {
+        padding: 0.75rem !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .btn-auth {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.95rem !important;
+    }
+    
+    /* Footer */
+    .site-footer {
+        padding: 1.5rem 0 0 !important;
+        margin-top: 2rem !important;
+    }
+    
+    .footer-top {
+        padding-bottom: 1rem !important;
+    }
+    
+    .footer-brand .brand-link {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .footer-brand .brand-link i {
+        font-size: 1.35rem !important;
+    }
+    
+    .footer-brand .brand-desc {
+        font-size: 0.8rem !important;
+    }
+    
+    .footer-title {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+        margin-top: 1rem;
+    }
+    
+    .footer-links li {
+        margin-bottom: 0.35rem !important;
+    }
+    
+    .footer-links a {
+        font-size: 0.8rem !important;
+    }
+    
+    .social-links {
+        margin-top: 0.5rem;
+        gap: 0.5rem !important;
+    }
+    
+    .social-link {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .social-link i {
+        font-size: 0.85rem !important;
+    }
+    
+    .footer-bottom {
+        padding: 1rem 0 !important;
+    }
+    
+    .footer-bottom .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .copyright {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .bottom-links {
+        justify-content: center !important;
+    }
+    
+    .bottom-links a {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Edit Page */
+    .edit-form-container {
+        padding: 1rem !important;
+    }
+    
+    /* Error Page */
+    .error-page {
+        padding: 2rem 1rem !important;
+    }
+    
+    /* Flash Messages */
+    .alert {
+        font-size: 0.9rem !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Utility Classes for Mobile */
+    .mobile-hidden {
+        display: none !important;
+    }
+    
+    .mobile-full-width {
+        width: 100% !important;
+    }
+    
+    .mobile-center {
+        text-align: center !important;
+    }
+    
+    .mobile-stack {
+        flex-direction: column !important;
+    }
+}
+
+/* ============================================
+   EXTRA SMALL DEVICES (up to 375px)
+   ============================================ */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.4rem !important;
+    }
+    
+    .category-card {
+        padding: 1rem 0.35rem !important;
+    }
+    
+    .category-icon {
+        font-size: 1.5rem !important;
+    }
+    
+    .category-name {
+        font-size: 0.7rem !important;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.65rem !important;
+    }
+    
+    .filter {
+        min-width: 55px !important;
+    }
+    
+    .listing-title {
+        font-size: 1.15rem !important;
+    }
+    
+    .auth-card {
+        padding: 1.25rem !important;
+    }
+}
+
+/* ============================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .listing-card:hover {
+        transform: none;
+    }
+    
+    .listing-card:active {
+        transform: scale(0.98);
+    }
+    
+    .category-card:hover {
+        transform: none;
+    }
+    
+    .category-card:active {
+        transform: scale(0.98);
+    }
+    
+    .btn-explore:hover,
+    .btn-cta:hover,
+    .btn-auth:hover {
+        transform: none;
+    }
+    
+    /* Make touch targets bigger */
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .like-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .filter {
+        min-height: 60px;
+    }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION ADJUSTMENTS
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh !important;
+        padding: 1rem !important;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .hero-search {
+        flex-direction: row !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-search input {
+        margin-bottom: 0 !important;
+    }
+    
+    .auth-page {
+        min-height: auto !important;
+        padding: 1rem !important;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .navbar,
+    .site-footer,
+    .filter-toggle-btn,
+    #filters,
+    .tax-toggle,
+    .like-btn,
+    .auth-buttons,
+    .btn-edit,
+    .btn-delete,
+    .review-form {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+    
+    .listing-image {
+        max-height: 300px;
+    }
+}

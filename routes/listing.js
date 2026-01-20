@@ -5,8 +5,8 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 const {isLoggedIn, isOwner, validateListing} = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
-const multer  = require('multer');
-const {storage} = require("../cloudConfig.js")
+const multer = require('multer');
+const {storage} = require("../cloudConfig.js");
 const upload = multer({storage});
 
 router.route("/")// Index Route ,Create Route
@@ -17,8 +17,14 @@ router.route("/")// Index Route ,Create Route
     wrapAsync(listingController.createListing)
 );
 
+// Wishlist Route (must be before /:id to avoid conflict)
+router.get("/wishlist", isLoggedIn, wrapAsync(listingController.getWishlist));
+
 // New Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
+
+// Like/Unlike Route
+router.post("/:id/like", isLoggedIn, wrapAsync(listingController.toggleLike));
 
 router.route("/:id") // Delete Route, Update Route, Show Route
 .get(wrapAsync(listingController.showListing))

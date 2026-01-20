@@ -1,67 +1,371 @@
 <% layout("/layouts/boilerplate") %>
-<div class="row mt-3">
-    <div class="col-8 offset-2">
-        <h3>Edit your Listing</h3>
+
+<style>
+    .edit-page {
+        padding: 2rem 0;
+    }
+    
+    .edit-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        border: 1px solid #f0f0f0;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .edit-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #ebebeb;
+    }
+    
+    .edit-header i {
+        font-size: 1.5rem;
+        color: #ff385c;
+        background: #fff5f7;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .edit-header h3 {
+        font-weight: 700;
+        color: #222;
+        margin: 0;
+    }
+    
+    .form-section {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #ebebeb;
+    }
+    
+    .form-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .form-label {
+        font-weight: 500;
+        color: #222;
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-control, .form-select {
+        border-radius: 12px;
+        padding: 0.875rem 1rem;
+        border: 1px solid #ddd;
+        transition: all 0.2s ease;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: #222;
+        box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+    }
+    
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+    
+    .current-image {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: #f7f7f7;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+    
+    .current-image img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .current-image-text {
+        color: #717171;
+        font-size: 0.9rem;
+    }
+    
+    .current-image-text strong {
+        color: #222;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+    
+    .price-input-group {
+        position: relative;
+    }
+    
+    .price-input-group .currency-symbol {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #717171;
+        font-weight: 500;
+    }
+    
+    .price-input-group input {
+        padding-left: 2.5rem;
+    }
+    
+    .btn-update {
+        background: linear-gradient(135deg, #ff385c 0%, #e31c5f 100%);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 100%;
+    }
+    
+    .btn-update:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255, 56, 92, 0.3);
+    }
+    
+    .btn-update i {
+        margin-right: 0.5rem;
+    }
+    
+    .btn-cancel {
+        background: #f7f7f7;
+        color: #222;
+        border: 1px solid #ddd;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+    }
+    
+    .btn-cancel:hover {
+        background: #ebebeb;
+        color: #222;
+    }
+    
+    .button-group {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .button-group .btn-update {
+        flex: 2;
+    }
+    
+    .button-group .btn-cancel {
+        flex: 1;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+        .edit-page {
+            padding: 1.5rem 0;
+        }
+        
+        .edit-card {
+            padding: 1.75rem;
+            border-radius: 16px;
+        }
+        
+        .edit-header {
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        
+        .edit-header i {
+            font-size: 1.25rem;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .edit-header h3 {
+            font-size: 1.25rem;
+        }
+        
+        .current-image {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .current-image img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    
+    @media (max-width: 575px) {
+        .edit-page {
+            padding: 1rem 0;
+        }
+        
+        .edit-card {
+            padding: 1.25rem;
+            border-radius: 12px;
+        }
+        
+        .edit-header {
+            gap: 0.5rem;
+        }
+        
+        .edit-header i {
+            font-size: 1.1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+        
+        .edit-header h3 {
+            font-size: 1.1rem;
+        }
+        
+        .form-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            font-size: 0.9rem;
+        }
+        
+        .form-control, .form-select {
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            border-radius: 10px;
+        }
+        
+        .current-image {
+            padding: 0.75rem;
+        }
+        
+        .current-image img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .current-image-text {
+            font-size: 0.8rem;
+        }
+        
+        .button-group {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .btn-update, .btn-cancel {
+            padding: 0.875rem 1.5rem;
+            font-size: 0.95rem;
+        }
+    }
+</style>
+
+<div class="edit-page">
+    <div class="edit-card">
+        <div class="edit-header">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h3>Edit Listing</h3>
+        </div>
+        
         <form method="post" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
-                <div class="valid-feedback">
-                    Title looks good!
+            <!-- Basic Info -->
+            <div class="form-section">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Listing Title</label>
+                    <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Please add a title</div>
                 </div>
-            </div>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <textarea name="listing[description]" class="form-control" required ><%= listing.description %>"</textarea>
-
-                <div class="invalid-feedback">
-                    Please enter a short description
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please add a description</div>
                 </div>
             </div>
             
-            <div class="card col-6 show-card listing-card ">
-                Original listing Image <br>
-                <img src="<%= originalImageUrl %>">
-            </div>
-
-            <div class="mb-3">
-                <label for="image" class="form-label">Upload New Image</label>
-                <input name="listing[image]" type="file" class="form-control">
-
-                <div class="invalid-feedback">
-                    Please enter a valid Link for Image
-                </div>
-            </div>
-            <div class="row" >
-                <div class="mb-3 col-md-4">
-                    <label for="price" class="form-label">Price:</label>
-                    <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
-
-                    <div class="invalid-feedback">
-                        Please enter a valid Price
+            <!-- Image -->
+            <div class="form-section">
+                <label class="form-label">Current Image</label>
+                <div class="current-image">
+                    <img src="<%= originalImageUrl %>" alt="Current listing image">
+                    <div class="current-image-text">
+                        <strong>Current Photo</strong>
+                        Upload a new image to replace it
                     </div>
                 </div>
-
-                <div class="mb-3 col-md-8">
-                    <label for="country" class="form-label">Country:</label>
-                    <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
-                    <div class="invalid-feedback">
-                        Please enter a valid Country
+                
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload New Image (optional)</label>
+                    <input name="listing[image]" type="file" accept="image/*" class="form-control">
+                </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="form-section">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                        <div class="invalid-feedback">Please enter a country</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
+                        <div class="invalid-feedback">Please enter a location</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pricing & Category -->
+            <div class="form-section">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="price" class="form-label">Price per night</label>
+                        <div class="price-input-group">
+                            <span class="currency-symbol">₹</span>
+                            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required min="1">
+                        </div>
+                        <div class="invalid-feedback">Please enter a valid price</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select name="listing[category]" class="form-select" required>
+                            <% for(let cat of categories) { %>
+                                <option value="<%= cat %>" <%= listing.category === cat ? 'selected' : '' %>><%= cat %></option>
+                            <% } %>
+                        </select>
+                        <div class="invalid-feedback">Please select a category</div>
                     </div>
                 </div>
             </div>
 
-            <div class="mb-3">
-                <label for="location" class="form-label">Location:</label>
-                <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
-
-                <div class="invalid-feedback">
-                    Please enter a valid Location
-                </div>
+            <div class="button-group">
+                <button type="submit" class="btn-update">
+                    <i class="fa-solid fa-check"></i>Save Changes
+                </button>
+                <a href="/listings/<%= listing._id %>" class="btn-cancel">Cancel</a>
             </div>
-            <button class="btn btn-dark edit-btn mt-3">Edit</button>
         </form>
     </div>
 </div>
-<!-- <script src="/js/script.js"></script> -->

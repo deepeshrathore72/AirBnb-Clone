@@ -1,7 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review.js");
-const review = require("./review.js");
+
+// Define allowed categories (8 categories only)
+const CATEGORIES = [
+    "Beachfront",
+    "Mountains",
+    "Iconic Cities",
+    "Castles",
+    "Camping",
+    "Luxury",
+    "Countryside",
+    "Boats"
+];
 
 const listingSchema = new Schema({
     title : {
@@ -10,9 +21,6 @@ const listingSchema = new Schema({
     },
     description : String,
     image : {
-        // type : String,
-        // set : (v) => v === "" ? "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" : v, // default value for the field if no input is provided by user
-        // default : "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
         url : String,
         filename : String
     },
@@ -29,11 +37,31 @@ const listingSchema = new Schema({
         type : Schema.Types.ObjectId,
         ref : "User",
     },
-    // category : {
-    //     type : String,
-    //     enum : ["mountains", "arctic", "farms", "deserts"]
-    // }
+    category : {
+        type : String,
+        enum : CATEGORIES,
+        required : true
+    }
 });
+
+// Create indexes for search optimization
+listingSchema.index({ location: 'text', country: 'text', title: 'text' });
+listingSchema.index({ category: 1 });
+listingSchema.index({ location: 1 });
+listingSchema.index({ country: 1 });
+
+// Virtual for average rating
+listingSchema.virtual('avgRating').get(function() {
+    if (!this.reviews || this.reviews.length === 0) return 0;
+    const sum = this.reviews.reduce((acc, review) => {
+        return acc + (review.rating || 0);
+    }, 0);
+    return (sum / this.reviews.length).toFixed(1);
+});
+
+// Ensure virtuals are included in JSON
+listingSchema.set('toJSON', { virtuals: true });
+listingSchema.set('toObject', { virtuals: true });
 
 listingSchema.post("findOneAndDelete", async(listing)=>{
     if(listing){
@@ -41,5 +69,8 @@ listingSchema.post("findOneAndDelete", async(listing)=>{
     }
 });
 
-const  Listing = mongoose.model('Listing', listingSchema);
+const Listing = mongoose.model('Listing', listingSchema);
+
+// Export both the model and categories
 module.exports = Listing;
+module.exports.CATEGORIES = CATEGORIES;

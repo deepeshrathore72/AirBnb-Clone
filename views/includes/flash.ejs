@@ -1,13 +1,77 @@
+<style>
+    .flash-container {
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1050;
+        width: 100%;
+        max-width: 500px;
+        padding: 0 1rem;
+    }
+    
+    .flash-alert {
+        border: none;
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .flash-alert.alert-success {
+        background: linear-gradient(135deg, #00a699, #008f82);
+        color: white;
+    }
+    
+    .flash-alert.alert-danger {
+        background: linear-gradient(135deg, #ff385c, #e31c5f);
+        color: white;
+    }
+    
+    .flash-alert i {
+        font-size: 1.25rem;
+    }
+    
+    .flash-alert .btn-close {
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+    }
+    
+    .flash-alert .btn-close:hover {
+        opacity: 1;
+    }
+</style>
+
 <% if(success && success.length){ %>
-<div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
-    <%= success %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="flash-container">
+    <div class="flash-alert alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-check"></i>
+        <span><%= success %></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 </div>
 <% } %>
 
 <% if(error && error.length){ %>
-    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
-        <%= error %>
+<div class="flash-container">
+    <div class="flash-alert alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span><%= error %></span>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <% } %>
+</div>
+<% } %>

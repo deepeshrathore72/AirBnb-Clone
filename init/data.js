@@ -10,6 +10,7 @@ const sampleListings = [
     price: 1500,
     location: "Malibu",
     country: "United States",
+    category: "Beachfront",
   },
   {
     title: "Modern Loft in Downtown",
@@ -22,6 +23,7 @@ const sampleListings = [
     price: 1200,
     location: "New York City",
     country: "United States",
+    category: "Iconic Cities",
   },
   {
     title: "Mountain Retreat",
@@ -34,6 +36,7 @@ const sampleListings = [
     price: 1000,
     location: "Aspen",
     country: "United States",
+    category: "Mountains",
   },
   {
     title: "Historic Villa in Tuscany",
@@ -46,11 +49,12 @@ const sampleListings = [
     price: 2500,
     location: "Florence",
     country: "Italy",
+    category: "Countryside",
   },
   {
-    title: "Secluded Treehouse Getaway",
+    title: "Lakeside Camping Experience",
     description:
-      "Live among the treetops in this unique treehouse retreat. A true nature lover's paradise.",
+      "Live among the trees in this unique camping retreat. A true nature lover's paradise.",
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
@@ -58,6 +62,7 @@ const sampleListings = [
     price: 800,
     location: "Portland",
     country: "United States",
+    category: "Camping",
   },
   {
     title: "Beachfront Paradise",
@@ -70,6 +75,7 @@ const sampleListings = [
     price: 2000,
     location: "Cancun",
     country: "Mexico",
+    category: "Beachfront",
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -82,6 +88,7 @@ const sampleListings = [
     price: 900,
     location: "Lake Tahoe",
     country: "United States",
+    category: "Camping",
   },
   {
     title: "Luxury Penthouse with City Views",
@@ -94,6 +101,7 @@ const sampleListings = [
     price: 3500,
     location: "Los Angeles",
     country: "United States",
+    category: "Luxury",
   },
   {
     title: "Ski-In/Ski-Out Chalet",
@@ -106,6 +114,7 @@ const sampleListings = [
     price: 3000,
     location: "Verbier",
     country: "Switzerland",
+    category: "Mountains",
   },
   {
     title: "Safari Lodge in the Serengeti",
@@ -118,6 +127,7 @@ const sampleListings = [
     price: 4000,
     location: "Serengeti National Park",
     country: "Tanzania",
+    category: "Countryside",
   },
   {
     title: "Historic Canal House",
@@ -130,6 +140,7 @@ const sampleListings = [
     price: 1800,
     location: "Amsterdam",
     country: "Netherlands",
+    category: "Iconic Cities",
   },
   {
     title: "Private Island Retreat",
@@ -142,6 +153,7 @@ const sampleListings = [
     price: 10000,
     location: "Fiji",
     country: "Fiji",
+    category: "Luxury",
   },
   {
     title: "Charming Cottage in the Cotswolds",
@@ -154,6 +166,7 @@ const sampleListings = [
     price: 1200,
     location: "Cotswolds",
     country: "United Kingdom",
+    category: "Countryside",
   },
   {
     title: "Historic Brownstone in Boston",
@@ -166,6 +179,7 @@ const sampleListings = [
     price: 2200,
     location: "Boston",
     country: "United States",
+    category: "Iconic Cities",
   },
   {
     title: "Beachfront Bungalow in Bali",
@@ -178,6 +192,7 @@ const sampleListings = [
     price: 1800,
     location: "Bali",
     country: "Indonesia",
+    category: "Beachfront",
   },
   {
     title: "Mountain View Cabin in Banff",
@@ -190,11 +205,12 @@ const sampleListings = [
     price: 1500,
     location: "Banff",
     country: "Canada",
+    category: "Mountains",
   },
   {
-    title: "Art Deco Apartment in Miami",
+    title: "Sailing Yacht Experience",
     description:
-      "Step into the glamour of the 1920s in this stylish Art Deco apartment in South Beach.",
+      "Step into the glamour of sailing in this stylish yacht experience in South Beach.",
     image: {
       filename: "listingimage",
       url: "https://plus.unsplash.com/premium_photo-1670963964797-942df1804579?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
@@ -202,9 +218,10 @@ const sampleListings = [
     price: 1600,
     location: "Miami",
     country: "United States",
+    category: "Boats",
   },
   {
-    title: "Tropical Villa in Phuket",
+    title: "Tropical Villa with Pool",
     description:
       "Escape to a tropical paradise in this luxurious villa with a private infinity pool in Phuket.",
     image: {
@@ -214,6 +231,7 @@ const sampleListings = [
     price: 3000,
     location: "Phuket",
     country: "Thailand",
+    category: "Luxury",
   },
   {
     title: "Historic Castle in Scotland",
@@ -226,6 +244,7 @@ const sampleListings = [
     price: 4000,
     location: "Scottish Highlands",
     country: "United Kingdom",
+    category: "Castles",
   },
   {
     title: "Desert Oasis in Dubai",
@@ -238,11 +257,12 @@ const sampleListings = [
     price: 5000,
     location: "Dubai",
     country: "United Arab Emirates",
+    category: "Luxury",
   },
   {
-    title: "Rustic Log Cabin in Montana",
+    title: "Rustic Farm Stay in Montana",
     description:
-      "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
+      "Unplug and unwind in this cozy farmhouse surrounded by the natural beauty of Montana.",
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
@@ -250,6 +270,7 @@ const sampleListings = [
     price: 1100,
     location: "Montana",
     country: "United States",
+    category: "Countryside",
   },
   {
     title: "Beachfront Villa in Greece",
@@ -262,30 +283,33 @@ const sampleListings = [
     price: 2500,
     location: "Mykonos",
     country: "Greece",
+    category: "Beachfront",
   },
   {
-    title: "Eco-Friendly Treehouse Retreat",
+    title: "Medieval Castle Experience",
     description:
-      "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
+      "Stay in a medieval castle nestled in the French countryside. It's the perfect escape for history lovers.",
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 750,
-    location: "Costa Rica",
-    country: "Costa Rica",
+    price: 3500,
+    location: "Loire Valley",
+    country: "France",
+    category: "Castles",
   },
   {
-    title: "Historic Cottage in Charleston",
+    title: "Riverside Camping Retreat",
     description:
-      "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
+      "Experience the charm of riverside camping in this beautifully set up glamping site with a private garden.",
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1600,
-    location: "Charleston",
+    price: 600,
+    location: "Colorado",
     country: "United States",
+    category: "Camping",
   },
   {
     title: "Modern Apartment in Tokyo",
@@ -298,21 +322,23 @@ const sampleListings = [
     price: 2000,
     location: "Tokyo",
     country: "Japan",
+    category: "Iconic Cities",
   },
   {
-    title: "Lakefront Cabin in New Hampshire",
+    title: "Alpine Camping in New Hampshire",
     description:
-      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
+      "Spend your days by the lake in this cozy campsite in the scenic White Mountains of New Hampshire.",
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1200,
+    price: 400,
     location: "New Hampshire",
     country: "United States",
+    category: "Camping",
   },
   {
-    title: "Luxury Villa in the Maldives",
+    title: "Luxury Overwater Villa in Maldives",
     description:
       "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
     image: {
@@ -322,11 +348,12 @@ const sampleListings = [
     price: 6000,
     location: "Maldives",
     country: "Maldives",
+    category: "Boats",
   },
   {
-    title: "Ski Chalet in Aspen",
+    title: "Snow-Capped Mountain Lodge",
     description:
-      "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
+      "Hit the slopes in style with this luxurious ski lodge in the world-famous Aspen ski resort.",
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
@@ -334,6 +361,7 @@ const sampleListings = [
     price: 4000,
     location: "Aspen",
     country: "United States",
+    category: "Mountains",
   },
   {
     title: "Secluded Beach House in Costa Rica",
@@ -346,6 +374,20 @@ const sampleListings = [
     price: 1800,
     location: "Costa Rica",
     country: "Costa Rica",
+    category: "Beachfront",
+  },
+  {
+    title: "Royal Castle Stay in Germany",
+    description:
+      "Experience royal living in this magnificent castle overlooking the Rhine Valley.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 4500,
+    location: "Rhine Valley",
+    country: "Germany",
+    category: "Castles",
   },
 ];
 

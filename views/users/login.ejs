@@ -1,20 +1,200 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-    <h1 class="col-6 offset-3">login</h1>
-    <div class="col-6 offset-3">
-        <form action="/login" method="post" class="needs-validation" novalidate>
+<style>
+    .auth-page {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+    
+    .auth-card {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        padding: 2.5rem;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .auth-header i {
+        font-size: 2.5rem;
+        color: #ff385c;
+        margin-bottom: 1rem;
+    }
+    
+    .auth-header h2 {
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 0.5rem;
+    }
+    
+    .auth-header p {
+        color: #717171;
+    }
+    
+    .auth-form .form-label {
+        font-weight: 500;
+        color: #222;
+    }
+    
+    .auth-form .form-control {
+        border-radius: 12px;
+        padding: 0.875rem 1rem;
+        border: 1px solid #ddd;
+        transition: all 0.2s ease;
+    }
+    
+    .auth-form .form-control:focus {
+        border-color: #222;
+        box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+    }
+    
+    .btn-auth {
+        background: linear-gradient(135deg, #ff385c 0%, #e31c5f 100%);
+        color: white;
+        border: none;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-auth:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 56, 92, 0.3);
+    }
+    
+    .auth-divider {
+        display: flex;
+        align-items: center;
+        margin: 1.5rem 0;
+        color: #717171;
+    }
+    
+    .auth-divider::before,
+    .auth-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #ddd;
+    }
+    
+    .auth-divider span {
+        padding: 0 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .auth-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: #717171;
+    }
+    
+    .auth-footer a {
+        color: #ff385c;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 575px) {
+        .auth-page {
+            min-height: 75vh;
+            padding: 1.25rem 0.75rem;
+        }
+        
+        .auth-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+        
+        .auth-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .auth-header i {
+            font-size: 2rem;
+        }
+        
+        .auth-header h2 {
+            font-size: 1.35rem;
+        }
+        
+        .auth-header p {
+            font-size: 0.9rem;
+        }
+        
+        .auth-form .form-label {
+            font-size: 0.9rem;
+        }
+        
+        .auth-form .form-control {
+            padding: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .btn-auth {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+        }
+        
+        .auth-divider span {
+            font-size: 0.8rem;
+        }
+        
+        .auth-footer {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<div class="auth-page">
+    <div class="auth-card">
+        <div class="auth-header">
+            <i class="fa-solid fa-compass me-1"></i>
+            <h2>Welcome back</h2>
+            <p>Log in to continue your journey</p>
+        </div>
+        
+        <form action="/login" method="post" class="auth-form needs-validation" novalidate>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input name="username" id="username" type="text"  class="form-control" required>
+                <input name="username" id="username" type="text" class="form-control" placeholder="Enter your username" required>
+                <div class="invalid-feedback">Please enter your username</div>
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input name="password" id="password" type="password"  class="form-control" required>
+                <input name="password" id="password" type="password" class="form-control" placeholder="Enter your password" required>
+                <div class="invalid-feedback">Please enter your password</div>
             </div>
 
-            <button class="btn btn-success">login</button>
+            <button type="submit" class="btn-auth">
+                <i class="fa-solid fa-right-to-bracket me-2"></i>Log in
+            </button>
         </form>
+        
+        <div class="auth-divider">
+            <span>or</span>
+        </div>
+        
+        <div class="auth-footer">
+            Don't have an account? <a href="/signup">Sign up</a>
+        </div>
     </div>
 </div>
